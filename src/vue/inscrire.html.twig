@@ -1,0 +1,48 @@
+{% extends "base.html.twig" %}
+{% block title %} {{ parent() }}S'inscrire {% endblock %}
+{% block contenu %}
+
+{% if form.valide is defined %} 
+    {% if form.valide == true %}
+        <h1>Inscription réussie</h1>
+        <h1>Voici votre identifiant : {{form.email}}</h1>
+        {% if form.role == 1 %}
+        <h1>Vous êtes administrateur du site</h1>
+        {% else %}
+        <h1>Vous êtes un client du site </h1>
+        {% endif %} 
+    {% else %}
+        <h1>Echec de l'inscription</h1>
+        <h1>Erreur : {{form.message}}</h1>
+        <h1><a href="index.php?page=inscrire">Retourner sur la page d'inscription</a></h1>
+    {% endif %}
+{% else %}
+<form action="index.php?page=inscrire" method="post" enctype="application/x-www-form- urlencoded">
+<!-- Nom complet -->
+    <label for="nom">Nom :</label>
+    <input type="text" id="nom" name="nom" placeholder="Entrez votre nom" required>
+
+    <label for="prenom">Prénom :</label>
+    <input type="text" id="prenom" name="prenom" placeholder="Entrez votre prénom" required>
+
+    <!-- Email -->
+    <label for="email">Adresse Email :</label>
+    <input type="email" id="email" name="email" placeholder="Entrez votre email" required>
+
+    <!-- Mot de passe -->
+    <label for="password">Mot de passe :</label>
+    <input type="password" id="password" name="password" placeholder="Créez un mot de passe" required>
+
+    <label for="confirm_password">Confirmez le mot de passe :</label>
+    <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirmez votre mot de passe" required>
+
+    <select class="form-control" name="role">
+        <option value="1">Administrateur</option>
+        <option value="2">Client</option>
+    </select>
+
+    <!-- Bouton de soumission -->
+    <button class="btn btn-lg btn-primary btn-block" type="submit" name="btInscrire">S'inscrire</button>
+</form>
+{% endif %}
+{% endblock %}

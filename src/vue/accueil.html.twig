@@ -1,0 +1,143 @@
+{% extends "base.html.twig" %}
+{% block title %} {{ parent() }}accueil{% endblock %}
+{% block contenu %}
+    <div class="container-fluid bg-light">
+        <h1><a href="index.php?page=acceuil" class="text-primary" class="text-center"></a></h1>
+        <h1>Avventura</h1>
+    </div>
+<main>
+    <section id="à propos">
+            <div class="container">
+                <h2>A propos du Studio</h2>
+                <br>
+                <p>Que vous soyez voyageurs ou passionné de voyages, l’audiovisuel est un atout indispensable pour mettre en valeur vos Road-Trip et inspirer votre communauté. Mon service se spécialise dans la capture, la production et la diffusion
+                    de contenus de voyages de haute qualité, conçus pour répondre aux attentes des voyageurs du monde entier.</p>
+                <p>Grâce à des équipements de pointe et à mon expertise en imagerie, je vous aide à transformer vos moments forts en vidéos captivantes : enregistrements, captation d'aventures, YouTube, Podcast… Ma
+                    mission est de vous offrir une vitrine exceptionnelle, que vous souhaitiez construire une marque personnelle ou partager votre passion avec le plus grand nombre.</p>
+                <p>Avec des solutions audiovisuelles adaptées, vivez, revisitez et partagez chaque voyage avec un maximum d’impact !</p>
+            </div>
+    </section>
+    <section id="services">
+        <h2>Nos Services</h2>
+        <div class="services-list">
+            <div class="service-box">
+                <h3>Podcast voyage</h3>
+                <p>Montage de vidéo ou audio Podcast pour les réseaux sociaux, YouTube, plateforme de streaming...</p>
+                <p class="price">Prix : Jusqu'à 550€</p>
+                <p>Inclut : audio et / ou vidéo, montage complet.</p>
+            </div>
+            <div class="service-box">
+                <h3>Documentaire voyage</h3>
+                <p>Réalisation et / ou Montage de Documentaire pour YouTube ou autre plateforme de streaming...</p>
+                <p class="price">Prix : 6 350€</p>
+                <p>Inclut : pré-production, tournage, frais de déplacement, équipements et droits</p>
+            </div>
+            <div class="service-box">
+                <h3>Vidéo éducative</h3>
+                <p>Réalisation et / ou Montage de Vidéo éducative pour les réseaux sociaux, YouTube...</p>
+                <p class="price">Prix : 3 250€</p>
+                <p>Inclut : pré-production, tournage, frais de déplacement, équipements et droits.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="podcasts">
+            <h2>Les Podcasts</h2>
+            <p class="Ppodcast">podcast collaboratif avec l'inflenceur @vida_de_octavio</p>
+            <div class="podcast-item">
+                <h3>Podcast avec Mathias Dantin</h3>
+                <!-- Intégration du lecteur de podcast Spotify -->
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/2GjUoQTs0uVBeWowjDiVhr?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy"></iframe>
+            </div>
+            <div class="podcast-item">
+                <h3>Podcast avec Coralie Claverie</h3>
+                <!-- Intégration du lecteur de podcast Spotify -->
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/3PcSim9Opg4uhXW3q354Ss?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy"></iframe>
+            </div>
+            <!-- Ajoutez d'autres podcasts ici -->
+        </section>
+
+    <section id="engagement">
+        <section class="environmental-commitment">
+            <h2 class="section-title">Mon Engagement Environnemental</h2>
+            <div class="commitment-container">
+                <div class="commitment-text">
+                    <p>
+                        Je m'engage à réduire mon empreinte écologique en intégrant des pratiques durables dans toutes mes productions. Mes objectifs incluent l'utilisation d'énergies renouvelables, la réduction des déchets et le recyclage des matériaux utilisés.
+                    </p>
+                    <ul>
+                        <li>Production éco-responsable</li>
+                        <li>Matériaux recyclés et biodégradables</li>
+                        <li>Réduction des émissions de CO2</li>
+                        <li>Partenariats avec des ONG environnementales</li>
+                    </ul>
+                    <p>
+                        Ensemble, créons un avenir plus vert tout en poursuivant notre passion pour l'audiovisuel.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <section id="veille">
+            <div class="veille-container">
+                <h2>Veille Audiovisuelle : Tendances Actuelles</h2>
+                <div class="veille-carousel" id="carousel">
+                    <!-- Article 1 -->
+                    <div class="veille-item">
+                        <div class="veille-image">
+                            <img src="./public/img1.png">
+                        </div>
+                        <div class="veille-content">
+                            <h2 class="veille-title">L'essor de la réalité virtuelle</h2>
+                            <p class="veille-description">
+                                La réalité virtuelle (VR) est en plein essor, offrant des expériences immersives inédites dans les films et les séries.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Article 2 -->
+                    <div class="veille-item">
+                        <div class="veille-image">
+                            <img src="./public/img2.jpg">
+                        </div>
+                        <div class="veille-content">
+                            <h2 class="veille-title">La montée des productions indépendantes</h2>
+                            <p class="veille-description">
+                                Grâce aux plateformes de streaming, les productions indépendantes gagnent en visibilité avec des outils numériques accessibles.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Article 3 -->
+                    <div class="veille-item">
+                        <div class="veille-image">
+                            <img src="./public/img3.jpeg">
+                        </div>
+                        <div class="veille-content">
+                            <h2 class="veille-title">L'IA dans la post-production</h2>
+                            <p class="veille-description">
+                                L'intelligence artificielle révolutionne la post-production avec des outils de montage automatisés et des ajustements de couleur.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Article 4 -->
+                    <div class="veille-item">
+                        <div class="veille-image">
+                            <img src="./public/img4.webp">
+                        </div>
+                        <div class="veille-content">
+                            <h2 class="veille-title">L'impact du streaming sur le cinéma</h2>
+                            <p class="veille-description">
+                                Les plateformes comme Netflix et Amazon Prime modifient les habitudes des spectateurs, privilégiant les sorties numériques.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+</main>
+{% endblock %}

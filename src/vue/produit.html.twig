@@ -1,0 +1,40 @@
+{% extends "base.html.twig" %}
+{% block title %} {{ parent() }}Produits{% endblock %}
+{% block contenu %}
+
+<h1><a href="index.php?page=produit"></a></h1>
+<h2>Ajouter un Produit</h2>
+    <form method="POST">
+        <label>Désignation :</label>
+        <input type="text" name="designation" required><br>
+        <label>Description :</label>
+        <textarea name="description"></textarea><br>
+        <label>Prix :</label>
+        <input type="number" step="0.01" name="prix" required><br>
+        <label>ID Type :</label>
+        <input type="number" name="idType" required><br>
+        <button type="submit">Ajouter</button>
+    </form>
+
+    <h2>Liste des Produits</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Désignation</th>
+            <th>Description</th>
+            <th>Prix</th>
+            <th>ID Type</th>
+        </tr>
+        {% for produit in produits %}
+            <tr>
+                <td>{{ produit.id|e }}</td>
+                <td>{{ produit.designation|e }}</td>
+                <td>{{ produit.description|e }}</td>
+                <td>{{ produit.prix|e }}</td>
+                <td>{{ produit.idType|e }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "base.html.twig" %}
+{% block title %} {{ parent() }}Type{% endblock %}
+{% block contenu %}
+
+<h1><a href="index.php?page=type"></a></h1>
+<div class="container">
+        <h1>Liste des Types</h1>
+        
+        <ul>
+            {% for type in types|sort %}
+                <li>{{ type.nom }}</li>
+            {% else %}
+                <li>Aucun type trouvé.</li>
+            {% endfor %}
+        </ul>
+
+        <h2>Ajouter un nouveau type</h2>
+        <form action="{{ path('ajouter_type') }}" method="post">
+            <input type="text" name="nom" placeholder="Nom du type" required>
+            <button type="submit">Ajouter</button>
+        </form>
+    </div>
+{% endblock %}

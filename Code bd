@@ -1,0 +1,116 @@
+**Base de donnée lié au site e-commerce (version 5.2.1)**
+
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Hôte : 127.0.0.1:3306
+-- Généré le : mer. 07 mai 2025 à 06:29
+-- Version du serveur : 9.1.0
+-- Version de PHP : 8.3.14
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de données : `avventura`
+--
+CREATE DATABASE IF NOT EXISTS `avventura` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `avventura`;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `produit`
+--
+
+DROP TABLE IF EXISTS `produit`;
+CREATE TABLE IF NOT EXISTS `produit` (
+  `id` int NOT NULL,
+  `designation` varchar(100) NOT NULL,
+  `description` text NOT NULL,
+  `#prix` float NOT NULL,
+  `#idType` int NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `rôle`
+--
+
+DROP TABLE IF EXISTS `rôle`;
+CREATE TABLE IF NOT EXISTS `rôle` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `libelle` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `rôle`
+--
+
+INSERT INTO `rôle` (`id`, `libelle`) VALUES
+(1, 'administrateur'),
+(2, 'client');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `type`
+--
+
+DROP TABLE IF EXISTS `type`;
+CREATE TABLE IF NOT EXISTS `type` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `libelle` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `utilisateur`
+--
+
+DROP TABLE IF EXISTS `utilisateur`;
+CREATE TABLE IF NOT EXISTS `utilisateur` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `email` varchar(100) NOT NULL,
+  `mdp` varchar(256) NOT NULL,
+  `nom` varchar(100) NOT NULL,
+  `prenom` varchar(100) NOT NULL,
+  `idRole` int UNSIGNED NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idRole` (`idRole`)
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `utilisateur`
+--
+
+INSERT INTO `utilisateur` (`id`, `email`, `mdp`, `nom`, `prenom`, `idRole`) VALUES
+(1, 'chiarellistan@gmail.com', '$2y$10$9oTazPrNJmblc3nojhrPG.RwyetjRHdWfZ3vDUuBy0q3HzAZMAhLa', 'Chiarelli', 'Stan', 1),
+(5, 'client@client.fr', '$2y$10$XdSrwj1O9UhrvzsFbREateh.Lfk4vYRlGW.YnizeY19PcooAP.8bW', 'test', 'Jacques', 2),
+(4, 'test@test.fr', '$2y$10$HBYLF41iJI5.xID7qJwn4ulU702up2vGNNQquDFLru0IOJIecuEoy', 'Dye', 'Mathis', 2);
+
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `rôle`
+--
+ALTER TABLE `rôle` ADD FULLTEXT KEY `libelle` (`libelle`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
